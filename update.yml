@@ -1,0 +1,16 @@
+- name: Update server configuration
+  sudo: true
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Install essential packages
+      apt:
+        pkg: "{{ item }}"
+        state: present
+        update_cache: true
+      with_items:
+        - htop
+        - vim
+        - nginx      
+        - nmap
+
