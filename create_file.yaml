@@ -1,0 +1,11 @@
+- name: Create File
+  hosts: all
+  tasks:
+    - copy:
+        content: "Does this work?"
+        dest: ~/test_file
+    - command: cat ~/test_file
+      register: test
+    
+    - debug:
+        msg: "{{ test.stdout }}"
